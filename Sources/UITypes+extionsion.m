@@ -467,11 +467,7 @@
 - (void)xy_sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event {
     if(self.isUsedLogin){
         NSLog(@"需要登录");
-        if ([AppUser share].isLogin) {
-            [self xy_sendAction:action to:target forEvent:event];
-        }else{
-            [[NSNotificationCenter defaultCenter] postNotificationName:SYSTEMISUSELOGINNOTIFICATION object:nil];
-        }
+        [self xy_sendAction:action to:target forEvent:event];
     }else{
         NSLog(@"无需登录");
         [self xy_sendAction:action to:target forEvent:event];
